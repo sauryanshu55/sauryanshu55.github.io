@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const day = today.getDate();
 
         // Check if it's February 14th
-        if (month === 1 && day === 14) {
+        if (month === 1 && day === 6) {
             // It's Valentine's Day! Hide title and show the card
             revealTitle.style.display = 'none';
             cardContainer.classList.remove('hidden');

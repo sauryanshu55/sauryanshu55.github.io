@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         yesButtonTimeout = setTimeout(() => {
             yesButton.classList.remove('hidden');
             yesButton.style.animation = 'fadeIn 0.5s ease-in';
-        }, 5000);
+        }, 8000);
     }
 
     // Desktop: mouseover event
