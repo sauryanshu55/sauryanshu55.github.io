@@ -1,0 +1,331 @@
+/* Valentine's Day Pages Stylesheet */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    --fw-reg: 300;
+    --fw-bold: 900;
+    --clr-bg: #f5f5f5;
+    --clr-card: #ffffff;
+    --clr-text: #303030;
+    --clr-primary: #4a90e2;
+    --clr-accent: #ee3124;
+    --clr-success: #50c878;
+    --bs: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--ff-primary);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--clr-text);
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--clr-card);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: var(--bs);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Password Page Styles */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--clr-text);
+    font-weight: var(--fw-bold);
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+#passwordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+input[type="password"] {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: var(--ff-secondary);
+    transition: border-color 0.3s ease;
+}
+
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+}
+
+button[type="submit"] {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: var(--fw-bold);
+    background: var(--clr-primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--ff-primary);
+}
+
+button[type="submit"]:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.error-message {
+    color: var(--clr-accent);
+    font-size: 0.9rem;
+    min-height: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Question Pages Styles */
+.question-card {
+    max-width: 550px;
+}
+
+.image-container {
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+}
+
+.question-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--clr-text);
+    font-weight: var(--fw-bold);
+}
+
+.question-text {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--clr-text);
+}
+
+.button-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    position: relative;
+}
+
+.btn {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: var(--fw-bold);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-no {
+    background: #e0e0e0;
+    color: var(--clr-text);
+    position: absolute;
+    transition: all 0.2s ease;
+}
+
+.btn-no:hover {
+    background: #d0d0d0;
+}
+
+.btn-yes {
+    background: var(--clr-success);
+    color: white;
+    position: relative;
+}
+
+.btn-yes:hover {
+    background: #45b369;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(80, 200, 120, 0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Reveal Page Styles */
+.reveal-card {
+    max-width: 600px;
+}
+
+.reveal-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--clr-text);
+}
+
+.btn-card {
+    background: var(--clr-primary);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-card:hover {
+    background: #357abd;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.4);
+}
+
+.message-container {
+    margin-top: 2rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.early-message {
+    font-size: 1.3rem;
+    color: var(--clr-accent);
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.card-container {
+    margin-top: 2rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+
+.card-message {
+    font-size: 1.5rem;
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .question-text {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 0.9rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    .reveal-title {
+        font-size: 1.6rem;
+    }
+
+    .early-message {
+        font-size: 1.1rem;
+    }
+
+    .card-message {
+        font-size: 1.3rem;
+    }
+
+    .question-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        padding: 1.5rem 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    h1, .reveal-title {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn:active {
+        transform: scale(0.95);
+    }
+
+    .btn-yes:active {
+        transform: scale(1);
+    }
+}
