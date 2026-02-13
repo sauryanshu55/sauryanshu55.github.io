@@ -3,28 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>No Escape!</title>
+  <title>Card!</title>
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/valentine.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
   <div class="container">
-    <div class="card reveal-card">
-      <h1 class="reveal-title">Well, No was never an option.</h1>
-      
-      <button id="cardButton" class="btn btn-card">Here's a card for you</button>
+    <div class="card reveal-card">      
+      <button id="cardButton" class="btn btn-card">You've received a card</button>
       
       <div id="messageContainer" class="message-container hidden">
         <p class="early-message">Why are you so excited? <br>It's not even Saturday yet.<br>Check back on Saturday maybe?</p>
       </div>
       
       <div id="cardContainer" class="card-container hidden">
-        <img src="images\IMG_4264.JPG" alt="Valentine's Card" class="card-image">
-        <p class="card-message">Happy Valentine's Day! </p>
-        <br>
-        <h1 class="question-text">Much Love <br>-Sauryanshu</h1>
-
+        <div class="card-photo-frame">
+          <img src="images/IMG_4261.jpg" alt="You" class="card-image card-photo">
+        </div>
+        
+        <div class="card-greeting">
+          <p class="valentine-message">Happy Valentine's Day! </p>
+        </div>
+        
+        <div class="card-signature">
+          <p class="signature-text">:-) :-)</p>
+          <!-- <p class="signature-name">- Sauryanshu</p> -->
+        </div>
+        
+        <div class="hinge-section">
+          <div class="hinge-divider"></div>
+          <p class="hinge-text">Where it all started, by the way</p>
+          <div class="hinge-frame">
+            <img src="images/IMG_4392.JPG" alt="Our first conversation" class="card-image hinge-screenshot">
+          </div>
+        </div>
       </div>
     </div>
   </div>

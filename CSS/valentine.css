@@ -141,6 +141,14 @@ button[type="submit"]:hover {
     max-width: 100%;
 }
 
+.card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
+}
+
 h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
@@ -244,19 +252,87 @@ h2 {
     animation: fadeIn 0.5s ease-in;
 }
 
-.card-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    max-width: 100%;
+.card-photo-frame {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(145deg, #f9f9f9, #e8e8e8);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.card-message {
-    font-size: 1.5rem;
+.card-photo {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-greeting {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(238, 49, 36, 0.05), rgba(238, 49, 36, 0.1));
+    border-radius: 15px;
+    border-left: 4px solid var(--clr-accent);
+}
+
+.valentine-message {
+    font-size: 1.8rem;
     color: var(--clr-accent);
     font-weight: var(--fw-bold);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.card-signature {
+    margin: 2rem 0 0.5rem 0;
+    text-align: center;
+    font-family: var(--ff-secondary);
+}
+
+.signature-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+}
+
+.signature-name {
+    font-size: 1.6rem;
+    color: var(--clr-text);
+    font-weight: var(--fw-bold);
+    font-style: italic;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.hinge-section {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+}
+
+.hinge-divider {
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--clr-primary), transparent);
+    margin: 0 auto 2rem auto;
+}
+
+.hinge-text {
+    font-size: 1.2rem;
+    color: var(--clr-primary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.hinge-frame {
+    padding: 1rem;
+    background: linear-gradient(145deg, #f0f4ff, #e1e9ff);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.15);
+}
+
+.hinge-screenshot {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */
@@ -291,12 +367,25 @@ h2 {
         font-size: 1.1rem;
     }
 
-    .card-message {
-        font-size: 1.3rem;
+    .valentine-message {
+        font-size: 1.5rem;
+    }
+
+    .signature-name {
+        font-size: 1.4rem;
+    }
+
+    .hinge-text {
+        font-size: 1.1rem;
     }
 
     .question-image {
         width: 100%;
+    }
+
+    .card-photo-frame,
+    .hinge-frame {
+        padding: 0.7rem;
     }
 }
 
@@ -316,6 +405,23 @@ h2 {
 
     h2 {
         font-size: 1.2rem;
+    }
+
+    .valentine-message {
+        font-size: 1.3rem;
+    }
+
+    .signature-name {
+        font-size: 1.2rem;
+    }
+
+    .hinge-text {
+        font-size: 1rem;
+    }
+
+    .card-photo-frame,
+    .hinge-frame {
+        padding: 0.5rem;
     }
 }
 

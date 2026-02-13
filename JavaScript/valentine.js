@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = passwordInput.value.trim();
         
         if (password === 'honeycat') {
-            // Correct password - redirect to first question
-            window.location.href = 'valentine-q1.html';
+            window.location.href = 'valentine-reveal.html';
         } else {
             // Wrong password
             errorMessage.textContent = '❌ Incorrect password. Try again!';
