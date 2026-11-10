@@ -15,7 +15,7 @@ window.BDAY = {
 
   /* The card opens on this date (her device's local time) and any day after.
      To test it before then, temporarily set the year to 2020, then change it back! */
-  UNLOCK: { year: 2026, month: 11, day: 8 },
+  UNLOCK: { year: 2026, month: 11, day: 11 },
 
   /* Optional hint shown under the password box. Leave "" to hide it. */
   HINT: "Hint: the name of a cartoon character??",
