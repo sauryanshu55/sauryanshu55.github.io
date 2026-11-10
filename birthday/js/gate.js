@@ -45,7 +45,7 @@
 
     if (hash !== B.PASSWORD_HASH) {
       msg.className = "msg error";
-      msg.textContent = "Hmm, that's not it. Good grief! Try again 🐾";
+      msg.textContent = "Whoops, not really correct :/ 🐾";
       shake();
       input.select();
       return;

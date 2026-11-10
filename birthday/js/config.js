@@ -15,10 +15,10 @@ window.BDAY = {
 
   /* The card opens on this date (her device's local time) and any day after.
      To test it before then, temporarily set the year to 2020, then change it back! */
-  UNLOCK: { year: 2026, month: 11, day: 11 },
+  UNLOCK: { year: 2026, month: 11, day: 8 },
 
   /* Optional hint shown under the password box. Leave "" to hide it. */
-  HINT: "Hint: the name of a certain beagle 🐶",
+  HINT: "Hint: the name of a cartoon character??",
 
   /* Internal: where the "I entered the password" flag is kept (this tab only). */
   SESSION_KEY: "bday-unlocked-v1"
