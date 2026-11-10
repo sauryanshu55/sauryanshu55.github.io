@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>🐾 Psst... a secret for you</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Patrick+Hand&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/birthday.css">
+</head>
+<body>
+
+  <!-- reusable drawings (original Peanuts-inspired icons) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="doghouse" viewBox="0 0 200 170">
+        <rect x="32" y="72" width="136" height="90" fill="#fff6dc" stroke="#1d1d2b" stroke-width="6" stroke-linejoin="round"/>
+        <polygon points="12,80 100,10 188,80" fill="#e63946" stroke="#1d1d2b" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M100,52 c-4,-8 -16,-4 -12,5 c2,4 8,8 12,11 c4,-3 10,-7 12,-11 c4,-9 -8,-13 -12,-5z" fill="#fff6dc" stroke="#1d1d2b" stroke-width="3"/>
+        <path d="M78,162 V122 a22,22 0 0 1 44,0 V162 Z" fill="#1d1d2b"/>
+        <rect x="46" y="86" width="26" height="16" rx="3" fill="#ffd23f" stroke="#1d1d2b" stroke-width="3"/>
+      </symbol>
+      <symbol id="bird" viewBox="0 0 60 60">
+        <path d="M24,16 q-4,-9 3,-11 M30,14 q1,-10 9,-7 M35,17 q6,-7 11,-1" fill="none" stroke="#1d1d2b" stroke-width="3" stroke-linecap="round"/>
+        <path d="M22,48 v7 M34,48 v7 M18,56 h8 M30,56 h8" stroke="#f08a24" stroke-width="3.5" stroke-linecap="round"/>
+        <ellipse cx="28" cy="34" rx="19" ry="17" fill="#ffd23f" stroke="#1d1d2b" stroke-width="3.5"/>
+        <path d="M14,36 q8,12 20,3" fill="none" stroke="#1d1d2b" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="45,31 57,35 45,40" fill="#f08a24" stroke="#1d1d2b" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="38" cy="30" r="3" fill="#1d1d2b"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- sky decorations -->
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <span class="floaty f1" aria-hidden="true">🎈</span>
+  <span class="floaty f2" aria-hidden="true">⭐</span>
+  <span class="floaty f3" aria-hidden="true">💛</span>
+  <span class="floaty f4" aria-hidden="true">🎈</span>
+  <span class="floaty f5" aria-hidden="true">✨</span>
+
+  <main class="page">
+    <section class="panel" id="gate">
+      <div class="zigzag"></div>
+      <div class="panel-body">
+
+        <div class="scene">
+          <img class="doghouse" src="images/snoopy.png" alt="">
+          <img class="bird bounce" src="images/peanuts.png" alt="">
+        </div>
+
+        <h1>Psst... what's the secret password?</h1>
+        <p class="sub">There's something waiting inside for you 💛</p>
+
+        <form id="gate-form" autocomplete="off">
+          <label for="pw" style="position:absolute;left:-9999px">Password</label>
+          <input class="field" id="pw" type="password" placeholder="type it here..." autocomplete="off" autocapitalize="none" spellcheck="false" required>
+          <button class="btn" type="submit">Let me in! 🐾</button>
+        </form>
+
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+        <p class="hint" id="hint" hidden></p>
+
+        <!-- shown only if the password is right but it's before the unlock date -->
+        <div class="notice" id="early" hidden>
+          <strong>Right password! 🎉</strong>
+          But your card isn't ready until <span id="early-date"></span>. Come back then!
+          <div class="countdown" id="countdown"></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <p style="position:relative;z-index:2;text-align:center;font-family:sans-serif">This page needs JavaScript turned on. 🐶</p>
+  </noscript>
+
+  <script src="js/config.js"></script>
+  <script src="js/gate.js"></script>
+</body>
+</html>

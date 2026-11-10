@@ -1,0 +1,362 @@
+/* ============================================================
+   🐶 PEANUTS-INSPIRED BIRTHDAY STYLES
+   Palette: Charlie-Brown yellow, doghouse red, sky blue, cream, ink.
+   Tweak the colors right here ↓
+   ============================================================ */
+:root {
+  --yellow: #ffd23f;
+  --yellow-deep: #f4b400;
+  --red: #e63946;
+  --red-deep: #c92a37;
+  --sky: #8fd3f7;
+  --sky-deep: #5ab5ec;
+  --cream: #fff6dc;
+  --paper: #fffdf5;
+  --ink: #1d1d2b;
+  --grass: #7bc96f;
+  --grass-deep: #5aae52;
+
+  --font-title: "Chewy", "Comic Sans MS", "Chalkboard SE", cursive;
+  --font-body: "Patrick Hand", "Comic Sans MS", "Chalkboard SE", sans-serif;
+  --font-type: "Special Elite", "Courier New", monospace;
+
+  --outline: 4px solid var(--ink);
+  --pop: 6px 6px 0 var(--ink);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--ink);
+  background:
+    /* grassy hill at the bottom */
+    radial-gradient(120% 38% at 20% 100%, var(--grass) 60%, transparent 61%),
+    radial-gradient(120% 34% at 90% 108%, var(--grass-deep) 60%, transparent 61%),
+    /* sky */
+    linear-gradient(180deg, var(--sky-deep) 0%, var(--sky) 60%, #d8f1fd 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ---------- drifting clouds ---------- */
+.cloud {
+  position: fixed;
+  width: 150px; height: 50px;
+  background: #fff;
+  border-radius: 100px;
+  opacity: .95;
+  z-index: 0;
+  animation: drift linear infinite;
+  pointer-events: none;
+}
+.cloud::before, .cloud::after {
+  content: ""; position: absolute; background: #fff; border-radius: 50%;
+}
+.cloud::before { width: 70px; height: 70px; top: -32px; left: 26px; }
+.cloud::after  { width: 90px; height: 90px; top: -44px; left: 66px; }
+.cloud.c1 { top: 8%;  animation-duration: 70s; transform: scale(1);   animation-delay: -10s; }
+.cloud.c2 { top: 22%; animation-duration: 95s; transform: scale(.7);  animation-delay: -50s; opacity: .8; }
+.cloud.c3 { top: 55%; animation-duration: 80s; transform: scale(.9);  animation-delay: -30s; opacity: .85; }
+@keyframes drift {
+  from { left: -260px; }
+  to   { left: 110vw; }
+}
+
+/* ---------- floating balloons / stars ---------- */
+.floaty {
+  position: fixed; z-index: 0; pointer-events: none; user-select: none;
+  font-size: 2rem; animation: bob 4s ease-in-out infinite;
+}
+.floaty:nth-of-type(odd)  { animation-duration: 5s; }
+.floaty.f1 { left: 6%;  top: 18%; }
+.floaty.f2 { right: 8%; top: 12%; font-size: 2.6rem; }
+.floaty.f3 { left: 12%; top: 62%; font-size: 1.6rem; animation-delay: -1s; }
+.floaty.f4 { right: 10%; top: 58%; animation-delay: -2s; }
+.floaty.f5 { left: 48%; top: 6%; font-size: 1.5rem; animation-delay: -3s; }
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50%      { transform: translateY(-18px) rotate(6deg); }
+}
+
+/* ---------- layout ---------- */
+.page {
+  position: relative; z-index: 1;
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 28px 16px 60px;
+}
+
+/* ---------- Charlie-Brown zigzag ---------- */
+.zigzag {
+  height: 34px;
+  background-color: var(--yellow);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='34'><polyline points='0,26 12,8 24,26 36,8 48,26' fill='none' stroke='%231d1d2b' stroke-width='6' stroke-linejoin='miter'/></svg>");
+  background-repeat: repeat-x;
+  background-position: center;
+  border-top: var(--outline);
+  border-bottom: var(--outline);
+}
+
+/* ---------- comic panel ---------- */
+.panel {
+  position: relative;
+  width: min(92vw, 480px);
+  background: var(--cream);
+  border: var(--outline);
+  border-radius: 28px;
+  box-shadow: var(--pop);
+  padding: 0 0 28px;
+  overflow: hidden;
+  transform: rotate(-1deg);
+}
+.panel .zigzag { border-top: 0; margin-bottom: 20px; }
+.panel-body { padding: 0 24px; text-align: center; }
+
+h1, h2 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: .5px;
+}
+.panel h1 { font-size: clamp(1.9rem, 7vw, 2.5rem); line-height: 1.05; color: var(--red); text-shadow: 3px 3px 0 var(--ink); }
+.sub { margin: 10px 0 18px; font-size: 1.25rem; }
+
+/* ---------- form bits ---------- */
+.field {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 12px 16px;
+  border: var(--outline);
+  border-radius: 18px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: transform .15s, box-shadow .15s;
+}
+.field:focus { transform: scale(1.03); box-shadow: 0 0 0 5px var(--yellow); }
+.field::placeholder { color: #9a9a9a; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  letter-spacing: .5px;
+  color: #fff;
+  background: var(--red);
+  border: var(--outline);
+  border-radius: 999px;
+  padding: 10px 28px;
+  margin-top: 16px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--ink);
+  text-decoration: none;
+  transition: transform .1s, box-shadow .1s, background .15s;
+}
+.btn:hover { background: var(--red-deep); transform: translate(-1px, -2px) rotate(-1deg); box-shadow: 6px 7px 0 var(--ink); }
+.btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+.btn:focus-visible { outline: 4px solid var(--yellow-deep); outline-offset: 3px; }
+
+.msg { min-height: 1.6em; margin: 14px 0 0; font-size: 1.2rem; }
+.msg.error { color: var(--red-deep); font-weight: bold; }
+.hint { margin: 14px 0 0; font-size: 1rem; opacity: .75; }
+
+.shake { animation: shake .45s; }
+@keyframes shake {
+  10%, 90% { transform: translateX(-3px) rotate(-1deg); }
+  20%, 80% { transform: translateX(5px) rotate(1deg); }
+  30%, 50%, 70% { transform: translateX(-8px) rotate(-1deg); }
+  40%, 60% { transform: translateX(8px) rotate(1deg); }
+}
+
+/* ---------- art ---------- */
+.doghouse { width: 150px; height: auto; display: block; margin: 0 auto; }
+.bird { width: 54px; height: 54px; }
+.bird.bounce { animation: hop 1.1s ease-in-out infinite; transform-origin: bottom center; }
+@keyframes hop {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  15% { transform: translateY(0) scale(1.12, .88); }
+  45% { transform: translateY(-22px) scale(.92, 1.1) rotate(-8deg); }
+  75% { transform: translateY(0) scale(1.08, .92) rotate(6deg); }
+}
+
+.scene { position: relative; width: 170px; margin: 0 auto 8px; padding-top: 22px; }
+.scene .bird { position: absolute; top: -18px; left: 56px; z-index: 2; }
+
+/* ---------- countdown ---------- */
+.notice {
+  margin-top: 18px; padding: 14px 16px;
+  background: var(--yellow); border: var(--outline); border-radius: 20px;
+  box-shadow: 4px 4px 0 var(--ink);
+  font-size: 1.2rem;
+}
+.notice strong { font-family: var(--font-title); font-weight: 400; font-size: 1.5rem; display: block; margin-bottom: 4px; }
+.countdown { font-family: var(--font-type); font-size: 1.5rem; margin-top: 6px; }
+
+/* ============================================================
+   THE CARD
+   ============================================================ */
+.card { position: relative; width: min(92vw, 560px); perspective: 1600px; }
+
+/* ----- cover ----- */
+.cover {
+  position: relative;
+  min-height: 560px;
+  background: var(--yellow);
+  border: var(--outline);
+  border-radius: 24px;
+  box-shadow: 10px 10px 0 var(--ink);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 36px;
+  cursor: pointer;
+  transform-origin: left center;
+  transition: transform .9s cubic-bezier(.55, -.1, .3, 1), opacity .9s ease;
+  background-image: radial-gradient(rgba(255,255,255,.55) 3px, transparent 3.5px);
+  background-size: 28px 28px;
+}
+.cover.opening { transform: rotateY(-115deg); opacity: 0; }
+.cover .zigzag { margin-top: 112px; border-left: 0; border-right: 0; }
+
+.cover h1 {
+  font-size: clamp(2.6rem, 11vw, 4rem);
+  line-height: 1;
+  color: var(--red);
+  margin: 38px 12px 0;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 5px 0 var(--ink);
+}
+.cover h1 .ch { display: inline-block; animation: wave 2.2s ease-in-out infinite; animation-delay: calc(var(--i) * 0.07s); }
+@keyframes wave {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-9px) rotate(-3deg); }
+}
+.cover .to { font-family: var(--font-body); font-size: 1.5rem; margin: 18px 0 0; }
+.cover .scene { margin-top: 26px; }
+.tap {
+  display: inline-block; margin-top: 8px;
+  font-family: var(--font-title); font-size: 1.4rem;
+  background: var(--paper); border: var(--outline); border-radius: 999px;
+  padding: 8px 22px; box-shadow: 4px 4px 0 var(--ink);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 50% { transform: scale(1.08) rotate(-2deg); } }
+.cover:focus-visible { outline: 5px solid var(--red); outline-offset: 6px; }
+
+.badge {
+  position: absolute; top: 18px; right: 18px;
+  width: 82px; height: 82px; border-radius: 50%;
+  background: var(--red); color: #fff; border: var(--outline);
+  display: grid; place-items: center; text-align: center;
+  font-family: var(--font-title); font-size: 1.05rem; line-height: 1;
+  transform: rotate(12deg); box-shadow: 3px 3px 0 var(--ink);
+}
+.badge.left { right: auto; left: 18px; transform: rotate(-12deg); background: var(--sky-deep); }
+
+/* ----- inside ----- */
+.inside {
+  background: var(--cream);
+  border: var(--outline);
+  border-radius: 24px;
+  box-shadow: 10px 10px 0 var(--ink);
+  overflow: hidden;
+  animation: popin .7s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+@keyframes popin {
+  from { transform: scale(.7) rotate(-4deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0); opacity: 1; }
+}
+.inside .zigzag { border-top: 0; border-left: 0; border-right: 0; }
+.inside-body { padding: 26px 22px 30px; text-align: center; }
+.inside h2 { font-size: clamp(2rem, 8vw, 2.8rem); color: var(--red); text-shadow: 3px 3px 0 var(--ink); line-height: 1.05; }
+.inside .age { margin: 6px 0 0; font-size: 1.3rem; }
+
+/* polaroid photo */
+.polaroid {
+  position: relative;
+  width: min(100%, 360px);
+  margin: 34px auto 30px;
+  padding: 14px 14px 56px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(29,29,43,.85);
+  transform: rotate(-3deg);
+  transition: transform .3s;
+}
+.polaroid:hover { transform: rotate(1deg) scale(1.03); }
+.polaroid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--sky); border: 2px solid var(--ink); }
+.polaroid figcaption {
+  position: absolute; left: 0; right: 0; bottom: 14px;
+  font-family: var(--font-title); font-size: 1.5rem; color: var(--ink);
+}
+.polaroid::before, .polaroid::after {
+  content: ""; position: absolute; top: -16px; width: 86px; height: 30px;
+  background: rgba(255, 210, 63, .85); border: 2px dashed rgba(29,29,43,.35);
+}
+.polaroid::before { left: -22px; transform: rotate(-35deg); }
+.polaroid::after  { right: -22px; transform: rotate(35deg); }
+
+/* typewriter letter */
+.letter {
+  position: relative;
+  text-align: left;
+  background:
+    repeating-linear-gradient(transparent 0 33px, rgba(90,181,236,.45) 33px 35px),
+    var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  padding: 22px 22px 18px 54px;
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(.6deg);
+  font-family: var(--font-type);
+  font-size: 1.12rem;
+  line-height: 35px;
+}
+.letter::before { /* red margin line */
+  content: ""; position: absolute; top: 0; bottom: 0; left: 38px; width: 2px; background: rgba(230,57,70,.55);
+}
+.letter p { margin: 0 0 35px; }
+.letter p:last-of-type { margin-bottom: 0; }
+.letter .dear { font-weight: bold; }
+.letter .sign { margin-top: 35px; text-align: right; }
+
+.inside-footer { margin-top: 56px; }
+.inside-footer .scene { margin: 0 auto; }
+.inside-footer .small { margin: 10px 0 0; font-size: 1.1rem; }
+
+.replay { /* little "confetti again" button */
+  font-family: var(--font-title); font-size: 1.2rem;
+  background: var(--sky-deep); color: #fff; border: var(--outline); border-radius: 999px;
+  padding: 6px 20px; margin-top: 14px; cursor: pointer; box-shadow: 3px 3px 0 var(--ink);
+}
+.replay:active { transform: translate(3px, 3px); box-shadow: none; }
+
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+
+/* ---------- "Whoops" screen ---------- */
+.whoops .panel { transform: rotate(1.2deg); }
+.whoops .big { font-size: 4rem; line-height: 1; margin-bottom: 4px; }
+
+/* ---------- small screens ---------- */
+@media (max-width: 420px) {
+  body { font-size: 1.1rem; }
+  .cover { min-height: 520px; }
+  .badge { width: 68px; height: 68px; font-size: .9rem; top: 16px; }
+  .cover .zigzag { margin-top: 100px; }
+  .letter { padding-left: 46px; font-size: 1.02rem; }
+  .letter::before { left: 32px; }
+}
+
+/* ---------- respect reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
