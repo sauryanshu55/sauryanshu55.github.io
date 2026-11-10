@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>🎂 Happy Birthday!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Patrick+Hand&family=Special+Elite&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/birthday.css">
+</head>
+
+<body>
+
+  <!-- reusable drawings (original Peanuts-inspired icons) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="doghouse" viewBox="0 0 200 170">
+        <rect x="32" y="72" width="136" height="90" fill="#fff6dc" stroke="#1d1d2b" stroke-width="6"
+          stroke-linejoin="round" />
+        <polygon points="12,80 100,10 188,80" fill="#e63946" stroke="#1d1d2b" stroke-width="6"
+          stroke-linejoin="round" />
+        <path d="M100,52 c-4,-8 -16,-4 -12,5 c2,4 8,8 12,11 c4,-3 10,-7 12,-11 c4,-9 -8,-13 -12,-5z" fill="#fff6dc"
+          stroke="#1d1d2b" stroke-width="3" />
+        <path d="M78,162 V122 a22,22 0 0 1 44,0 V162 Z" fill="#1d1d2b" />
+        <rect x="46" y="86" width="26" height="16" rx="3" fill="#ffd23f" stroke="#1d1d2b" stroke-width="3" />
+      </symbol>
+      <symbol id="bird" viewBox="0 0 60 60">
+        <path d="M24,16 q-4,-9 3,-11 M30,14 q1,-10 9,-7 M35,17 q6,-7 11,-1" fill="none" stroke="#1d1d2b"
+          stroke-width="3" stroke-linecap="round" />
+        <path d="M22,48 v7 M34,48 v7 M18,56 h8 M30,56 h8" stroke="#f08a24" stroke-width="3.5" stroke-linecap="round" />
+        <ellipse cx="28" cy="34" rx="19" ry="17" fill="#ffd23f" stroke="#1d1d2b" stroke-width="3.5" />
+        <path d="M14,36 q8,12 20,3" fill="none" stroke="#1d1d2b" stroke-width="3" stroke-linecap="round" />
+        <polygon points="45,31 57,35 45,40" fill="#f08a24" stroke="#1d1d2b" stroke-width="2.5"
+          stroke-linejoin="round" />
+        <circle cx="38" cy="30" r="3" fill="#1d1d2b" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- sky decorations -->
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+  <span class="floaty f1" aria-hidden="true">🎈</span>
+  <span class="floaty f2" aria-hidden="true">⭐</span>
+  <span class="floaty f3" aria-hidden="true">💛</span>
+  <span class="floaty f4" aria-hidden="true">🎈</span>
+  <span class="floaty f5" aria-hidden="true">✨</span>
+
+  <!-- ==========================================================
+       1) DEFAULT VIEW: shown to anyone who skipped the password
+       (the JavaScript hides this when the password was entered)
+       ========================================================== -->
+  <main class="page whoops" id="whoops">
+    <section class="panel">
+      <div class="zigzag"></div>
+      <div class="panel-body">
+        <div class="big" aria-hidden="true">🚫🐶</div>
+        <h1>Whoops, you didn't enter the password</h1>
+        <p class="sub">Good grief! This card is only for someone special.</p>
+        <a class="btn" href="index.html">Take me to the password page</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================
+       2) Right password, but too early (backup safety net)
+       ========================================================== -->
+  <main class="page whoops" id="too-early" hidden>
+    <section class="panel">
+      <div class="zigzag"></div>
+      <div class="panel-body">
+        <div class="big" aria-hidden="true">⏳🎂</div>
+        <h1>Not just yet!</h1>
+        <p class="sub">Your card unlocks on <span id="early-date"></span>.</p>
+        <div class="notice">
+          <div class="countdown" id="countdown"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================
+       3) THE BIRTHDAY CARD (revealed by JS only when everything checks out)
+       ========================================================== -->
+  <main class="page" id="card-root" hidden>
+    <div class="card">
+
+      <!-- ===== COVER (tap to open) ===== -->
+      <section class="cover" id="cover" role="button" tabindex="0" aria-label="Tap to open your birthday card">
+        <div class="badge" aria-hidden="true">Nov<br>11!</div>
+        <div class="badge left" aria-hidden="true">🎁</div>
+
+        <div class="zigzag"></div>
+
+        <h1 data-wave>Happy Birthday!</h1>
+        <!-- ✏️ EDIT: her name -->
+        <p class="to">for the one and only <strong>Your Name Here</strong> 💛</p>
+
+        <div class="scene">
+          <img class="doghouse" src="images/snoopy.png" alt="">
+          <img class="bird bounce" src="images/peanuts.png" alt="">
+        </div>
+
+        <span class="tap">Tap to open 🎁</span>
+      </section>
+
+      <!-- ===== INSIDE ===== -->
+      <article class="inside" id="inside" hidden>
+        <div class="zigzag"></div>
+        <div class="inside-body">
+
+          <!-- ✏️ EDIT: her name -->
+          <h2 id="inside-title" tabindex="-1">Happy Birthday, Your Name Here!</h2>
+          <p class="age">🎉 Another trip around the sun! 🎉</p>
+
+          <!-- ✏️ EDIT: replace images/photo-placeholder.svg with your photo.
+               Put your picture in the images/ folder (e.g. images/us.jpg)
+               and change the src below to "images/us.jpg". Edit the caption too! -->
+          <figure class="polaroid">
+            <img src="images/photo-placeholder.svg" alt="A photo of us">
+            <figcaption>our favorite day 💛</figcaption>
+          </figure>
+
+          <!-- ✏️ EDIT: your message. Add or remove <p> paragraphs freely. -->
+          <div class="letter">
+            <p class="dear">Dear Your Name Here,</p>
+            <p>
+              This is where your first paragraph goes. Tell her what she means to you,
+              a favorite memory, or something that always makes you smile when you think of her.
+            </p>
+            <p>
+              And here is the second paragraph. Maybe a wish for the year ahead,
+              an inside joke, or a promise of a very good birthday dinner.
+            </p>
+            <p class="sign">Love always,<br>Your Name 🐾</p>
+          </div>
+
+          <div class="inside-footer">
+            <div class="scene">
+              <svg class="bird bounce" aria-hidden="true">
+                <use href="#bird" />
+              </svg>
+              <svg class="doghouse" aria-hidden="true">
+                <use href="#doghouse" />
+              </svg>
+            </div>
+            <p class="small">P.S. there's more confetti if you want it 🎊</p>
+            <button class="replay" id="replay" type="button">More confetti!</button>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <script src="js/config.js"></script>
+  <script src="js/card.js"></script>
+</body>
+
+</html>
